@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phi | Homepage</title>
+    <link rel="icon" type="image/x-icon" href="./images/Phi Teal on Transparent.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+ 
+ <script>
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const menu = document.querySelector(".content-overlay");
+        gsap.set(menu, {opacity: 0});
+
+        const squareContainer = document.getElementById("square-container");
+        const squareSize = 100;
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        const numCols = Math.ceil(screenWidth / squareSize);
+        const numRows = Math.ceil(screenHeight / squareSize);
+
+        const numSquares = numCols * numRows;
+
+        squareContainer.style.width = `${numCols * squareSize}px`;
+        squareContainer.style.height =`${numRows * squareSize}px`;
+
+        let squares = [];
+
+        function createSquares(){
+            for (let i = 0; i<numSquares; i++){
+                const square = document.createElement("div");
+                square.classList.add("square");
+                squareContainer.appendChild(square);
+                squares.push(square);
+
+            };
+        };
+
+        function animateSquares(){
+            gsap.fromTo(
+                squares,
+                {
+                    opacity: 0,
+                },
+                {
+                    opacity: 1,
+                    delay: 0.5,
+                    duration: 0.0005,
+                    stagger: {
+                        each: 0.004,
+                        from: "random",
+                    },
+
+                },
+            );
+
+            gsap.to(squares, {
+                opacity: 0,
+                delay: 1.5,
+                duration: 0.0005,
+                stagger: {
+                    each: 0.004,
+                    from: "random",
+                },
+            });
+        };
+
+        function toTop (){
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        })
+  delay: 0.1;
+        };
+
+
+        let OverlayVisible = false;
+
+        document.getElementById("toggle").addEventListener
+        ("click", () => {
+                toTop();
+                toTop();
+                squareContainer.innerHTML ="";
+                squares = [];
+                createSquares();
+                animateSquares();
+
+                gsap.to(menu, {
+                    zIndex: OverlayVisible ? -1 : 60,
+                    delay: OverlayVisible ? 0 : 1.6,
+                });
+
+                gsap.to(menu, 0.025, {
+                    opacity: OverlayVisible ? 0 : 1,
+                    visibility: OverlayVisible ? "hidden" : "visible",
+                    delay: 1,
+                });
+
+              
+
+                OverlayVisible = !OverlayVisible;
+            
+            });
+
+    });
+
+    
+
+</script>
+
+<div id="toggle">
+    <ion-icon name="menu-sharp"></ion-icon>
+</div>
+
+<nav>
+    <div>
+        <p>
+            phi
+        </p>
+    </div>
+    <div>
+        <p>
+            phi
+        </p>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="header">
+        
+        <h1> welcome to the worlds leading fashion brand</h1>
+    </div>
+</div>
+
+<div id="square-container"></div>
+
+<div class="content-overlay">
+    <div class="nav-header">
+        <h1>explore phi</h1>
+    </div>
+    <div class="nav-links">
+        <div class="nav-link">
+            <span>(01)</span>
+            <a href="landing page.html">home</a>
+        </div>
+        <div class="nav-link">
+            <span>(02)</span>
+            <a href="Gallery.html">Products</a>
+        </div>
+        <div class="nav-link">
+            <span>(03)</span>
+            <a href="About.html">About</a>
+        </div>
+        <div class="nav-link">
+            <span>(04)</span>
+            <a href="Locations.html">Locations</a>
+        </div>
+        <div class="nav-link">
+            <span>(05)</span>
+            <a href="Partners.html">Partners</a>
+        </div>
+    </div>
+</div>
+ 
+    <div class="first">
+        <div class="leftfirst">
+            <img src="./images/male_first_model.png">
+        </div>
+        <div class="rightfirst">
+            <img src="./images/female first model.png">
+        </div>    
+    </div>
+    <div class="tape-container">
+        <div class="tape-wrapper">
+            <div class="tape-transition">
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+                <h2 class="tape-item">welcome to phi</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="collections">
+        <div>
+            <h2 class="collection-title">OUR</h2>
+            <h2 class="collection-title2">COLLECTIONS</h2>
+
+        </div>
+        <div>
+           <a href="cactusproducts.html"><h2 class="cactus-jack"><p class="cactus-jack-over"><span><sup>03 </sup></span>Cactus Jack</p></h2></a> 
+        </div>
+        <div>
+            <a href="essentailproducts.html"><h2 class="essentials"><p><span><sup>02 </sup></span>Essentials</p></h2></a>
+        </div>
+        <div>
+            <a href="marsproducts.html"><h2 class="mars"><p><span><sup>01 </sup></span>Mars</p></h2></a>
+        </div>
+      
+    </div>
+    <div class="images">
+        
+    </div>
+
+    <script>
+        var div = document.querySelector('.images');
+        var hov = document.querySelector('.cactus-jack p');
+        hov.addEventListener('mouseover', function() {
+         div.style.backgroundImage = 'url(./images/models/landing_page/Cactus_Combined.jpg)';
+        });
+        hov.addEventListener('mouseout', function() {
+         div.style.backgroundImage = 'url(./images/models/landing_page/white.jpg)';
+        });
+     </script>
+     <script>
+        var div = document.querySelector('.images');
+        var hov = document.querySelector('.essentials p');
+        hov.addEventListener('mouseover', function() {
+         div.style.backgroundImage = 'url(./images/models/landing_page/essentail_combined.jpg)';
+        });
+        hov.addEventListener('mouseout', function() {
+         div.style.backgroundImage = 'url(./images/models/landing_page/white.jpg)';
+        });
+     </script>
+    <script>
+        var div = document.querySelector('.images');
+        var hov = document.querySelector('.mars p');
+        hov.addEventListener('mouseover', function() {
+         div.style.backgroundImage = 'url(./images/models/landing_page/mars_combined.jpg)';
+        });
+        hov.addEventListener('mouseout', function() {
+         div.style.backgroundImage = 'url(./images/models/landing_page/white.jpg)';
+        });
+     </script>
+
+    
+
+
+
+
+ 
+<script>
+
+
+const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+console.log(e)
+})
+
+function raf(time) {
+lenis.raf(time)
+requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+</script>
+
+
+
+
+<footer>
+    <div class="contact">
+        <h1>Contact Us</h1>
+        <form action="https://formsubmit.co/tjhansraj@gmail.com" method="POST">
+            <input type="text" id="inputname" name="Name" placeholder="Full Name" required>
+            <input type="email" id="inputemail" name="Email" placeholder="Email" required>
+            <select name="Region">
+                <option>Cayman Islands</option>
+                <option>North America</option>
+                <option>South America</option>
+                <option>Europe</option>
+                <option>Caribbean</option>
+                <option>Africa</option>
+                <option>Asia</option>
+                <option>Australia</option>
+            </select>
+            <textarea name="Message" id="inputmessage" placeholder="Message" required></textarea>
+            <button type="submit" id="submit">Send</button>
+        </form>
+    </div>
+    <div class="footnav">
+    
+<table>
+    <tr>
+        <th>Explore Phi</th>
+        
+    </tr>
+    <tr>
+        <td>            <a href="landing page.html">(01) Home</a> 
+        </td>
+   
+    </tr>
+    <tr>
+       <td>            <a href="Gallery.html">(02) Products</a>
+       </td>
+        
+    </tr>
+    <tr>
+        <td>            <a href="About.html">(03) About</a>
+        </td>
+        
+    </tr>
+    <tr>
+        <td>            <a href="Locations.html">(04) Locations</a>
+        </td>
+        
+    </tr>
+    <tr>
+        <td>            <a href="Partners.html">(05) Partners</a>
+        </td>
+
+    </tr>
+</table>
+    </div>
+</footer>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

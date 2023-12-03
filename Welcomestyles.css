@@ -1,0 +1,55 @@
+@font-face{
+    font-family: Ams;
+    src:url(Ams.ttf);
+}
+@font-face{
+    font-family: Pane;
+    src:url(pane.ttf);
+}
+html{
+    background-color: #121212;
+}
+.loader{
+    font-family:Ams;
+    background-position-y:top;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    z-index: 1;
+    background: conic-gradient(
+      #12e3d5 0,25%,
+      #a979fc 25% 50%,
+      #82baed 50% 75%,
+      #82edc2 75%
+    );
+    background-size: 200% 200%;
+    animation: animate 3.2s ease-in-out infinite;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    transition: opacity 0.75s, visibility 0.75s;
+
+
+}
+.--hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes animate{
+    25%{
+        background-position: 0 100%;
+
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+    75%{
+        background-position: 100% 0 ;
+    }
+    100%{
+        background-position: 0 0;
+    }
+}
